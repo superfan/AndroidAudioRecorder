@@ -23,3 +23,18 @@ dependencies {
     compile 'com.kailashdabhi:om-recorder:1.1.0'
     compile 'com.cleveroad:audiovisualization:1.0.0'
 }
+
+apply plugin: 'maven'
+version = "1.0.0"
+uploadArchives {
+    repositories {
+        mavenDeployer {
+            repository(url: "http://128.1.3.67:8099/repository/maven-releases/") {
+                authentication(userName: "admin", password: "admin123")
+                pom.groupId = "com.sh3h.android"
+                pom.artifactId = "recorder"
+                pom.version = version
+            }
+        }
+    }
+}
